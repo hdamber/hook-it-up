@@ -1,48 +1,18 @@
 import React from "react";
-import { BrowserRouter as Router, Link, Switch, Route } from "react-router-dom";
-import Home from "./Home";
-import Albums from "./Albums";
-import Comments from "./comments";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Users from "./users";
+import SingleUser from './SingleUser';
 
 function App() {
-  {
     return (
       <Router>
-          <div id="buttons" style={{display: "flex", justifyContent: "center", margin: "20px", padding: "20px"}}>
-            <Link to="/">
-              <button type="button" className="btn btn-outline-dark">
-                Go Home
-              </button>
-            </Link>
-
-            <Link to="/users/">
-              <button type="button" className="btn btn-outline-dark">
-                View Users
-              </button>
-            </Link>
-
-            <Link to="/comments">
-              <button type="button" className="btn btn-outline-dark">
-                View Comments
-              </button>
-            </Link>
-
-            <Link to="/Albums">
-              <button type="button" className="btn btn-outline-dark">
-                View Albums
-              </button>
-            </Link>
-          </div>
-          <Switch>
-            <Route exact path="/" component={Home} />
-            <Route path="/users/" component={Users} />
-            <Route path="/comments/" component={Comments} />
-            <Route path="/Albums/" component={Albums} />
-          </Switch>
+        <h2 style= {{ display: "flex", justifyContent: "center"}}>Hook It Up</h2>
+        <Switch>
+          <Route exact path="/" component={Users} />
+          <Route path="/:id/details" component={SingleUser} />
+        </Switch>
       </Router>
     );
   }
-}
 
 export default App;
